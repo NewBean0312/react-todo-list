@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.root": "",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active"
+}
