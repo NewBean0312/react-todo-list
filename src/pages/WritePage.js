@@ -1,6 +1,9 @@
 import { TextField, Button } from "@mui/material";
+import { useTodosStatus } from "../hooks";
 
 export default function WritePage() {
+  const todosStatus = useTodosStatus();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -19,6 +22,8 @@ export default function WritePage() {
 
       return;
     }
+
+    todosStatus.addTodo(form.regDate.value, form.content.value);
   };
 
   return (
@@ -32,7 +37,7 @@ export default function WritePage() {
         />
         <TextField
           name="content"
-          label="무엇을 해야 하나요?"
+          label="무엇을 해야하나요?"
           className="flex-1 flex"
           InputProps={{ className: "flex-1 flex-col" }}
           inputProps={{ className: "flex-1" }}
@@ -40,7 +45,7 @@ export default function WritePage() {
         />
         <Button type="submit" variant="contained">
           <span>
-            <i class="fa-solid fa-pen"></i>
+            <i className="fa-solid fa-pen"></i>
           </span>
           <span>&nbsp;</span>
           <span>할 일 추가</span>
