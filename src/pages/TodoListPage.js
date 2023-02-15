@@ -9,8 +9,7 @@ import { TodoList__filterCompletedIndexAtom } from "../atoms";
 export default function TodoList() {
   const todosStatus = useTodosStatus();
   const todoOptionDrawerStatus = useTodoOptionDrawerStatus();
-  const onCompletedBtnClicked = (id) => todosStatus.toggleTodoCompleteById(id);
-
+  const onCompletedBtnClicked = (id) => todosStatus.toggleTodoCompletedById(id);
   const [filterCompletedIndex, setFilterCompletedIndex] = useRecoilState(
     TodoList__filterCompletedIndexAtom
   );
