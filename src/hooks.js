@@ -1,3 +1,4 @@
+import produce from "immer";
 import { useState, useRef, useMemo } from "react";
 import { useRecoilState } from "recoil";
 import { todosAtom, lastTodoIdAtom } from "./atoms";
@@ -13,7 +14,7 @@ export function useTodoOptionDrawerStatus() {
     todoId,
     opened,
     close,
-    open
+    open,
   };
 }
 
@@ -83,6 +84,20 @@ export function useTodosStatus() {
     return todos[index];
   };
 
+  const toggleTodoCompleteById = (id) => {
+    const index = findTodoIndexById(id);
+
+    if (index == -1) {
+      return null;
+    }
+
+    setTodos(
+      produce(todos, (draft) => {
+        draft[index].completed = !draft[index].completed;
+      })
+    );
+  };
+
   return {
     todos,
     addTodo,
@@ -91,5 +106,6 @@ export function useTodosStatus() {
     removeTodo,
     removeTodoById,
     findTodoById,
+    toggleTodoCompleteById,
   };
 }
