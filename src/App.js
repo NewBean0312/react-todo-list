@@ -19,7 +19,6 @@ function App() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <div className="flex-1"></div>
           <span className="font-bold select-none">HAPPY NOTE</span>
           <div className="flex-1 flex justify-end">
             {location.pathname == "/main" && (
