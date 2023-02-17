@@ -1,6 +1,7 @@
 import { TextField, Button } from "@mui/material";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useNoticeSnackbarStatus } from "../components/NoticeSnackbar";
+import TodoOptionDrawer from "../components/TodoOptionDrawer";
 import { useTodosStatus } from "../hooks";
 
 export default function EditPage() {
@@ -71,7 +72,7 @@ export default function EditPage() {
             <i className="fa-solid fa-pen"></i>
           </span>
           <span>&nbsp;</span>
-          <span>할 일 수정</span>
+          <span>{todo.id}번 할 일 수정</span>
         </Button>
       </form>
     </>
